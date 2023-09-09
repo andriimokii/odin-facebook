@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="heading">Posts#index</h1>
+
+  <div class="form-container">
+    <%= render 'form', post: @post %>
+  </div>
+
+  <div class="posts-collection">
+    <%= render partial: 'post', collection: @posts %>
+  </div>
+</div>

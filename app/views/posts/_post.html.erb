@@ -1,0 +1,9 @@
+<div class="post border">
+  <div class="header">
+    <p><%= link_to "Post ##{post.id}", post_path(post) %></p>
+    <p>User: <%= post.user.email %></p>
+  </div>
+  <div class="content">
+    Content: <%= post.content %>
+  </div>
+</div>

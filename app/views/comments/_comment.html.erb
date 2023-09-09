@@ -1,0 +1,11 @@
+<div class="comment border">
+  <div class="header">
+    <p>User: <%= comment.user.email %></p>
+  </div>
+  <div class="message">
+    <p>Message: <%= comment.message %></p>
+  </div>
+  <p>
+    <%= link_to 'edit comment', edit_post_comment_path(post, comment) %>
+  </p>
+</div>

@@ -1,0 +1,22 @@
+<div class="post border">
+  <h1 class="heading">Posts#show</h1>
+
+  <div class="header">
+    <p><%= link_to "Edit Post ##{@post.id}", edit_post_path(@post) %></p>
+    <p>User: <%= @post.user.email %></p>
+  </div>
+
+  <div class="content">
+    Content: <%= @post.content %>
+  </div>
+
+  <div class="comments-collection">
+    <h1 class="heading">Comments</h1>
+
+    <%= render partial: 'comments/comment', collection: @comments, locals: { post: @post } %>
+  </div>
+
+  <div class="comment-form">
+    <%= render partial: 'comments/comment_form', locals: { post: @post, comment: @comment } %>
+  </div>
+</div>
