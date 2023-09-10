@@ -6,4 +6,14 @@
   <div class="content">
     Content: <%= post.content %>
   </div>
+  <div class="likes-count">
+    <%= link_to pluralize(post.likes.length, "like"), post_path(post) %>
+  </div>
+  <div class="likes-button">
+    <% if post.likers.include?(current_user) %>
+      <%= button_to '- Unlike post', post_like_path(post, post.likes.find_by(user: current_user).id), method: :delete %>
+    <% else %>
+      <%= button_to '+ Like post', post_likes_path(post) %>
+    <% end %>
+  </div>
 </div>
