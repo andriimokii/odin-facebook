@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :posts do
+  resources :posts, except: :index do
     resources :comments
     resources :likes, only: %i[create destroy]
   end
@@ -13,4 +13,9 @@ Rails.application.routes.draw do
   end
 
   resources :friendships, only: %i[create update destroy]
+  resources :users, only: %i[index show] do
+    resources :posts, only: :index, module: :users
+  end
+
+  resources :notifications, only: %i[index destroy update]
 end

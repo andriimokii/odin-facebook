@@ -5,6 +5,7 @@ class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.friendships.new(friend: @friend)
     if @friendship.save
+      Notification.create(user: @friendship.friend, notifiable: @friendship)
       redirect_to request.referrer, notice: 'Friendship request submitted'
     else
       redirect_to request.referrer, alert: 'Friendship request failed to be submitted'
@@ -21,6 +22,7 @@ class FriendshipsController < ApplicationController
 
   def destroy
     if @friendship.destroy
+      Notification.where(user: current_user, notifiable: @friendship).destroy_all
       redirect_to request.referrer, notice: 'Request destroyed'
     else
       redirect_to request.referrer, notice: 'Request failed to be destroyed'

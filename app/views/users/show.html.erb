@@ -1,0 +1,4 @@
+<div>
+  <p><%= @user.email %></p>
+  <p><%= link_to pluralize(@user.posts.count, "post"), user_posts_path(user_id: @user) %></p>
+</div>

@@ -1,0 +1,5 @@
+<% if @notifications.present? %>
+  <%= render partial: 'notification', collection: @notifications %>
+<% else %>
+  <p>No notifications</p>
+<% end %>

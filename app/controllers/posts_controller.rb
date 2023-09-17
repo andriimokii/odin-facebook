@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, except: %i[index create new]
+
   def index
     @posts = current_user.posts
     @post = Post.new

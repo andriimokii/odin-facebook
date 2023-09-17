@@ -1,0 +1,17 @@
+<p>
+  <%= link_to 'Friend requests', users_path %> from <%= link_to notification.notifiable.user.email, user_path(notification.notifiable.user) %> <%= time_ago_in_words(notification.notifiable.created_at) %> ago
+</p>
+
+<div>
+  <% unless notification.acknowledged? %>
+    <%= form_with model: notification do |form| %>
+      <%= form.hidden_field :acknowledged, value: true %>
+
+      <%= form.submit 'Acknowledge?' %>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
+  <%= button_to 'Delete', notification_path(notification), method: :delete %>
+</div>

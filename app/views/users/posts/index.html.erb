@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="heading">Users/Posts#index</h1>
+
+  <% if @posts.present? %>
+    <div class="posts-collection">
+      <%= render partial: 'posts/post', collection: @posts, as: :post %>
+    </div>
+  <% else %>
+    <p>No posts!</p>
+  <% end %>
+</div>

@@ -1,0 +1,4 @@
+<%= form_with url: friendship_form_facade(user)[:url], method: friendship_form_facade(user)[:method] do |form| %>
+  <%= form.hidden_field :friend_id, value: user.id %>
+  <%= form.submit friendship_form_facade(user)[:button_text] %>
+<% end %>
