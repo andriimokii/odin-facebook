@@ -77,3 +77,9 @@ gem "devise", "~> 4.9"
 
 gem "bootstrap", "~> 5.3"
 
+
+gem "omniauth-facebook", "~> 9.0"
+
+gem "omniauth-rails_csrf_protection", "~> 1.0"
+
+gem "omniauth", "~> 2.1"
