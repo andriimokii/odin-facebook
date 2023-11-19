@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, except: %i[index create new]
 
   def index
-    @posts = current_user.posts
+    @posts = Post.where(user_id: [current_user.id, current_user.friends.pluck(:id)].flatten)
     @post = Post.new
   end
 

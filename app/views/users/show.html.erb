@@ -1,4 +1,5 @@
 <div>
   <p><%= @user.email %></p>
+  <%= image_tag avatar_url_for(current_user, size: 24), class: "rounded-circle mr-1" %>
   <p><%= link_to pluralize(@user.posts.count, "post"), user_posts_path(user_id: @user) %></p>
 </div>
